@@ -11,6 +11,7 @@ cache:
 before_install:
   - python -m pip install --upgrade virtualenv
   - sudo apt install python3-dev libffi-dev libssl-dev
+  - sudo apt install rustc
 
 install:
 
