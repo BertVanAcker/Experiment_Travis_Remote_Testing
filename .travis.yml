@@ -1,7 +1,7 @@
 
 language: python
 python:
-    - "3.9"
+    - "2.7"
 
 # Cache PlatformIO packages using Travis CI container-based infrastructure
 sudo: false
@@ -10,16 +10,8 @@ cache:
         - "~/.platformio"
         - $HOME/.cache/pip
 
-before_install:
-  - python -m pip install --upgrade virtualenv
-  - sudo apt install python3-dev libffi-dev libssl-dev
-
 install:
-    - pip install --upgrade pip
-    - pip install rust
-    - pip install cargo
     - pip install -U platformio
-    - pio update
 
 # Remote agent <rpi_rig> needs to be up and running and the uno needs to be connected via the specified port
 script:
