@@ -19,4 +19,5 @@ install:
 
 # Remote agent <rpi_rig> needs to be up and running and the uno needs to be connected via the specified port
 script:
-    - pio remote -a rpi_rig run -t upload -e uno 
+    - pio remote -a rpi_rig run -t upload -e uno
+    - pio remote -a rpi_rig test -e uno    
