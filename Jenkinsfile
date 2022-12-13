@@ -1,5 +1,9 @@
 pipeline {
   agent any
+  environment {
+        PIO_USERNAME     = credentials('PIO_USERNAME')
+        PIO_PASSWORD     = credentials('PIO_PASSWORD')
+    }
 stages{
   stage('Install Platformio') {
         steps {
@@ -13,7 +17,7 @@ stages{
 	}
   stage('LOGIN') {
         steps {
-            sh 'pio account login --username bvanacker --password "@123abcd" '
+		sh 'pio account login --username $PIO_USERNAME --password $PIO_PASSWORD '
         }
 	}	
   stage('Compile and link + Flash on the buildserver (remote)') {
