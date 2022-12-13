@@ -13,7 +13,7 @@ stages{
 	}
   stage('Compile and link + Flash on the buildserver (remote)') {
         steps {
-            sh 'pio remote -a buildserver run -t upload -e uno'
+            sh 'pio remote -a buildserver run --force-remote -t upload -e uno --upload-port COM3'
         }
 	}
   }
