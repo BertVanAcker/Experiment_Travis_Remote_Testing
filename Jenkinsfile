@@ -16,12 +16,15 @@ stages{
         }
 	}
   stage('LOGIN') {
-        steps {
-		try {
+	try {
+		steps {
      	 		sh 'pio account login --username $PIO_USERNAME --password "$PIO_PASSWORD" '
-  		} catch (Exception e) {
+		}
+	} catch (Exception e) {
+		steps {
       			sh 'echo already logged in'
-  		}
+		}
+	}
 
         }
 	}	
