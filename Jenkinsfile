@@ -15,17 +15,15 @@ stages{
             sh 'pio pkg update'
         }
 	}
+  stage('LOGOUT') {
+        steps {
+            sh 'pio account logout || true '
+        }
+	}	
   stage('LOGIN') {
-	try {
-		steps {
-     	 		sh 'pio account login --username $PIO_USERNAME --password "$PIO_PASSWORD" '
-		}
-	} catch (Exception e) {
-		steps {
-      			sh 'echo already logged in'
-		}
-	}
-
+        steps {
+            sh 'pio account login --username $PIO_USERNAME --password "PIO_PASSWORD" '
+        }
 	}	
   stage('Compile and link + Flash on the buildserver (remote)') {
         steps {
@@ -34,3 +32,4 @@ stages{
 	}
   }
 }
+
