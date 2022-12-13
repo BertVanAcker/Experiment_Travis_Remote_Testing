@@ -17,7 +17,7 @@ stages{
 	}
   stage('LOGIN') {
         steps {
-		sh 'pio account login --username $PIO_USERNAME --password $PIO_PASSWORD '
+		sh 'pio account login --username $PIO_USERNAME --password "$PIO_PASSWORD" '
         }
 	}	
   stage('Compile and link + Flash on the buildserver (remote)') {
