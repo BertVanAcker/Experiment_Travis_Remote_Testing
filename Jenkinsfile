@@ -18,6 +18,9 @@ stages{
   stage('LOGIN') {
         steps {
 		sh 'pio account login --username $PIO_USERNAME --password "$PIO_PASSWORD" '
+		catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    sh 'echo already logged in'
+                }
         }
 	}	
   stage('Compile and link + Flash on the buildserver (remote)') {
