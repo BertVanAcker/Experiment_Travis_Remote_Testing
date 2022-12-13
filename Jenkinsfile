@@ -26,7 +26,6 @@ stages{
 		}
 	}
 
-        }
 	}	
   stage('Compile and link + Flash on the buildserver (remote)') {
         steps {
